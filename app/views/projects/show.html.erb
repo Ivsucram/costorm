@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Author:</strong>
+  <%= @project.author_id %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @project.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @project.description %>
+</p>
+
+<p>
+  <strong>Projecttype:</strong>
+  <%= @project.projectType %>
+</p>
+
+<p>
+  <strong>Ispublishedflag:</strong>
+  <%= @project.isPublishedFlag %>
+</p>
+
+<p>
+  <strong>Publisheddate:</strong>
+  <%= @project.publishedDate %>
+</p>
+
+<p>
+  <strong>Createddate:</strong>
+  <%= @project.createdDate %>
+</p>
+
+<p>
+  <strong>Lastupdatedate:</strong>
+  <%= @project.lastUpdateDate %>
+</p>
+
+<%= link_to 'Edit', edit_project_path(@project) %> |
+<%= link_to 'Back', projects_path %>
