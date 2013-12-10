@@ -12,7 +12,7 @@ Costorm::Application.routes.draw do
   resources :ideas_keywords
 
   # You can have the root of your site routed with "root"
-   #root 'welcome#index'
+  root 'welcome#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
