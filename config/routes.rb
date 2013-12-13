@@ -1,4 +1,6 @@
 Costorm::Application.routes.draw do
+  resources :idea_keywords
+
   resources :project_ideas
 
   resources :project_users

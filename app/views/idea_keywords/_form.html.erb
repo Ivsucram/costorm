@@ -1,0 +1,25 @@
+<%= form_for(@idea_keyword) do |f| %>
+  <% if @idea_keyword.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@idea_keyword.errors.count, "error") %> prohibited this idea_keyword from being saved:</h2>
+
+      <ul>
+      <% @idea_keyword.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :idea_id %><br>
+    <%= f.number_field :idea_id %>
+  </div>
+  <div class="field">
+    <%= f.label :keyword_id %><br>
+    <%= f.number_field :keyword_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

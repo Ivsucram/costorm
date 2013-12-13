@@ -1,0 +1,29 @@
+<h1>Listing idea_keywords</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Idea</th>
+      <th>Keyword</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @idea_keywords.each do |idea_keyword| %>
+      <tr>
+        <td><%= idea_keyword.idea_id %></td>
+        <td><%= idea_keyword.keyword_id %></td>
+        <td><%= link_to 'Show', idea_keyword %></td>
+        <td><%= link_to 'Edit', edit_idea_keyword_path(idea_keyword) %></td>
+        <td><%= link_to 'Destroy', idea_keyword, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Idea keyword', new_idea_keyword_path %>
