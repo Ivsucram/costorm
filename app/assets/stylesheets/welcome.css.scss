@@ -1,3 +1,110 @@
 // Place all the styles related to the welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+body
+	{	
+		background-color: #1D1D1D;
+	}
+	
+#login_top
+	{	
+		background-color: #1D1D1D;
+		background-position: bottom;
+		background-repeat: repeat-x;
+	}
+
+.login_header_field
+	{
+		float: left;
+	}
+
+header
+	{
+		padding-top: 15px;
+	}
+
+header p
+	{
+		float: left;
+		color: white;
+		margin-left: 470px;
+		margin-right: 20px;
+		margin-bottom: 15px;
+	}
+	
+#login_content
+	{
+		background: #EEE8E4;
+		background: -moz-linear-gradient(top, #EEE8E4 0%, #D6D1CD 100%);
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #EEE8E4), color-stop(100%, #D6D1CD));
+		background: -webkit-linear-gradient(top, #EEE8E4 0%, #D6D1CD 100%);
+		background: -o-linear-gradient(top, #EEE8E4 0%, #D6D1CD 100%);
+		background: -ms-linear-gradient(top, #EEE8E4 0%, #D6D1CD 100%);
+		background: linear-gradient(top, #EEE8E4 0%, #D6D1CD 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#EEE8E4', endColorstr='#D6D1CD',GradientType=0);
+		width: 100%;
+		height: 700px;
+	}
+	
+#login_content_left img
+	{
+		margin-top: 42px;
+		margin-left: 60px;
+	}
+
+#login_content_left iframe
+	{
+		margin-left: 60px;
+		margin-top: 40px;
+	}
+	
+#login_content_right
+	{
+		color: #EEEEEE;
+		-mos-border-radius: 5px;
+		-webkit-border-radius: 5px;
+		background: #333333;
+		margin-top: 40px;
+	}
+	
+#register_form
+	{
+	}
+
+#register_form h3
+	{
+		color: #EEEEEE;
+		margin-top: 0px;
+	}
+
+#register_form p
+	{
+		font-size: 11px;
+	}
+
+#register_form input
+	{
+		border: 1px solid #444444;
+		background-color: #666666;
+		padding: 5px;
+		color: #DDDDDD;
+		font-size: 12px;
+		text-shadow: 1px 1px 1px #000000;
+		-moz-border-radius: 4px;
+		-webkit-border-radius: 4px;
+	}
+
+label 
+	{
+		display: block;
+		font-size: 11px;
+		color: #CCCCCC;
+	}
+
+#login_footer
+	{
+		background-color: #1D1D1D;
+		background-position: top;
+		background-repeat: repeat-x;
+	}
