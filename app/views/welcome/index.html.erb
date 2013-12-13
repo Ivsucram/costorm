@@ -1,1 +1,95 @@
-<h1>Welcome#index</h1>
+<div id="login_top" class="row">
+	<header>
+		<form id="login_form">
+			<div class="small-6 large-6 columns"></div>
+			<div class="small-6 large-6 columns">
+				<div class="small-2 large-2 columns">
+					<span class="prefix">Sign in</span>
+				</div>
+				<div class="small-5 large-5 columns">
+					<input name="emailNick" type="text" placeholder="Email/Nick"/>
+				</div>
+				<div class="small-5 large-5 columns">
+					<div class="row collapse">
+						<div class="small-9 large-9 columns">
+							<input name="password" type="password" placeholder="Password"/>
+						</div>
+						<div class="small-3 large-3 columns">
+							<input type="hidden" name="loginSubmit" value="true"/>
+							<button class="button prefix" type="submit">Login</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+	</header>
+</div>
+
+<div id="login_content">
+	<div class="row">
+		<div id="logint_content_left" class="small-8 large-8 columns">
+			<img src="view/img/logo_welcome.png" data-interchange="[view/img/logo_welcome.png, (only screen and (min-width: 1px))], [view/img/logo_welcome.png, (only screen and (min-width: 1280px))]">
+			<div class="flex-video">
+				<iframe witdth="560" height="315" src="http://www.youtube.com/embed/hXZjzrvuFXg" frameborder="0" allowfullscreen></iframe>
+			</div>
+		</div>
+
+		<div id="login_content_right" class="small-4 large-4 columns">
+			<form id="register_form">
+				<h3>Sign-up</h3>
+
+				<p>
+					<input placeholder="Name" name="name" type="text" pattern="[a-zA-Z ]{5,}" maxlenghth="100" required="true" />
+				</p>
+
+				<p>
+					<input placeholder="Nick" name="nick" type="text" pattern="[a-zA-Z ]{5,}" maxlenght="50" required="true" />
+				</p>
+
+				<p>
+					<input placeholder="Email" name="email" type="email" maxlenght="100" required="required" />
+				</p>
+
+				<p>
+					<label>
+						Birthday
+						<div class="row collapse">
+							<div class="small-3 large-3 columns">
+								<input placeholder="Day" name="day" type="number" size="2" min="1" max="31" required="true"/>
+							</div>
+							<div class="small-3 large-3 columns">
+								<input placeholder="Month" name="month" type="number" size="2" min="1" max="12" required="true"/>
+							</div>
+							<div class="small-6 large-6 columns">
+								<input placeholder="Year" name="year" type="number" size="4" min="1900" max="2013"/>
+							</div>
+						</div>
+					</label>
+				</p>
+
+				<p>
+					<input placeholder="Password" name="password" type="password" maxlenght="50" required="true"/>
+				</p>
+
+				<p>
+					<input placeholder="Confirm Password" name="confirmPassword" type="password" maxlenght="50" required="true"/>
+				</p>
+
+				<p>
+					<label>
+						<input name="termsCheckbox" type="checkbox" required="required" />I accept the terms
+					</label>
+				</p>
+
+				<input type="hidden" name="registerSubmit" value="true"/>
+
+				<ul class="button-group round even-2">
+					<li><a type="submit" class="small button">Submit Form</a></li>
+					<li><a type="reset" class="small button alert">Reset</a></li>
+				</ul>
+			</form>
+		</div>
+	</div>
+</div>
+
+<div id="login_footer" class="row"></div>
