@@ -1,4 +1,6 @@
 Costorm::Application.routes.draw do
+  resources :project_users
+
   resources :users
 
   get "welcome/index"
