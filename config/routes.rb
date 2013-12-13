@@ -1,23 +1,14 @@
 Costorm::Application.routes.draw do
-  resources :idea_keywords
-
-  resources :project_ideas
-
-  resources :project_users
-
-  resources :users
-
-  get "welcome/index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
-  resources :users 
+  resources :users
   resources :projects
   resources :ideas
   resources :keywords
   resources :friends
-  resources :projects_users
-  resources :projects_ideas
-  resources :ideas_keywords
+  resources :project_users
+  resources :project_ideas
+  resources :idea_keywords
 
   # You can have the root of your site routed with "root"
   root 'welcome#index'
