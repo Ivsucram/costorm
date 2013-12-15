@@ -1,18 +1,19 @@
 class WelcomeController < ApplicationController
   def index
   	@user = User.new
+    @success
+    @error
   end
 
-  def newUser
-  	@user = User.new(user_params)
+  def new_user
+    if :password.equal :confirmPassword
+    	@user = User.new(user_params)
 
-  	respond_to do |format|
-      if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @user }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+    	respond_to do |format|
+        if @user.save
+          format.html { redirect_to index, notice: 'User was successfully created.' }
+          format.json { render action: 'show', status: :created, location: @user }
+        end
       end
     end
   end

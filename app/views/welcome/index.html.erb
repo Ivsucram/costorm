@@ -28,23 +28,73 @@
 <div id="login_content">
 	<div class="row">
 		<div id="logint_content_left" class="small-8 large-8 columns">
-			<%=image_tag("logo_welcome.png", alt:"logo welcome")%>
+			<%= image_tag("logo_welcome.png", alt:"logo welcome") %>
 			<div class="flex-video">
 				<iframe witdth="560" height="315" src="http://www.youtube.com/embed/hXZjzrvuFXg" frameborder="0" allowfullscreen></iframe>
 			</div>
 		</div>
 
 		<div id="login_content_right" class="small-4 large-4 columns">
-			<%= form_for(@user, :html => { :id => "register_form" } ) do |f| -%>
-			<h3> Sign-up</h3>
-				<%= f.text_field :name, :placeholder => "Name" %><br />
-				<%= f.text_field :nick, :placeholder => "Nick" %><br />
-				<%= f.text_field :email, :placeholder => "Email" %><br />
-				<%= f.date_select :birthday %><br />
-				<%= f.password_field :password, :placeholder =>"Password" %><br />
-				<%= f.password_field :confirmPassword, :placeholder =>"Confirm Password" %><br />
-				<%= f.check_box :termflag %>I accept the terms<br /> 
-				
+			<%= form_for( @user, :html => { :id => "register_form" } ) do |f| -%>
+				<h3> Sign-up</h3>
+				<p>
+					<%= f.text_field :name, :placeholder => "Name", :pattern => "[a-zA-Z ]{5,}", :maxlenght => "100", :required => "true" %>
+				</p>
+				<p>
+					<%= f.text_field :nick, :placeholder => "Nick", :pattern => "[a-zA-Z ]{5,}", :maxlenght => "50", :required => "true" %>
+				</p>
+				<p>
+					<%= f.email_field :email, :placeholder => "Email", :maxlenght => "100", :required => "true" %>
+				</p>
+				<p>
+					<label>
+						Birthday
+						<div class="row collapse">
+							<div class="small-3 large-3 columns">
+								<select id="user_birthday_2i" name="user[birthday(2i)]">
+									<option value="0" selected>Month</option>
+								    <option value="1">January</option>
+								    <option value="2">February</option>
+								    <option value="3">March</option>
+								    <option value="4">April</option>
+								    <option value="5">May</option>
+								    <option value="6">June</option>
+								    <option value="7">July</option>
+								    <option value="8">August</option>
+								    <option value="9">September</option>
+								    <option value="10">November</option>
+								    <option value="11">September</option>
+								    <option value="12">December</option>
+								</select>
+							</div>
+							<div class="small-3 large-3 columns">
+								<select id="user_birthday_3i" name="user[birthday(3i)]">
+								    <option value="0" selected>Day</option>
+								    <% (1..31).each do |i| %>
+										<option value="<%= i %>"><%= i %></option>
+									<% end %>
+								</select>
+							</div>
+							<div class="small-6 large-6 columns">
+								<select id="user_birthday_1i" name="user[birthday(1i)]">
+									<option value="1899" selected>Year</option>
+									<% (1900..2013).each do |i| %>
+										<option value="<%= i %>"><%= i %></option>
+									<% end %>
+								</select>
+							</div>
+						</div>
+					</label>
+				</p>
+				<p>
+					<%= f.password_field :password, :placeholder =>"Password", :maxlenght => "50", :required => "true" %>
+				</p>
+				<p>
+					<%= f.password_field :confirmPassword, :placeholder =>"Confirm Password", :maxlenght => "50", :required => "true" %>
+				</p>
+				<p>
+					<%= f.check_box :termflag, :required => "true" %> I accept the terms 
+				</p>
 				<ul class="button-group round even-2">
 					<li><button type="submit" class="small button">Submit</button></li>
 					<li><button type="reset" class="small button alert">Reset</button></li>
