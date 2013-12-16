@@ -32,6 +32,12 @@ header p
 		margin-right: 20px;
 		margin-bottom: 15px;
 	}
+
+footer
+	{
+		background: #F18020;
+		width: 100%;
+	}
 	
 #login_content
 	{
@@ -100,11 +106,4 @@ label
 		display: block;
 		font-size: 11px;
 		color: #CCCCCC;
-	}
-
-#login_footer
-	{
-		background-color: #1D1D1D;
-		background-position: top;
-		background-repeat: repeat-x;
 	}

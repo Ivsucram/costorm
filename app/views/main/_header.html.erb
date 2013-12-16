@@ -1,0 +1,20 @@
+<div id="header">
+	<header>
+		<div class="row">
+			<div class="small-2 large-2 columns">
+				<%= image_tag("logo_top.png", alt:"logo") %>
+			</div>
+			<div class="small-7 large-7 columns">
+			<%= form_tag("/search", method: "get") do %>
+				<label for="q" class="row">Search for:
+					<%= text_field_tag(:q, "Search") %>
+					<%= submit_tag("Search") %>
+				</label>
+			<% end %>
+			</div>
+			<div class="small-3 large-3 columns">
+				<button href="#" class="button radius alert secondary">New Project</button>
+			</div>
+		</div>
+	</header>
+</div>
