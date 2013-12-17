@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20131216163119) do
 
   create_table "ideas", force: true do |t|
     t.integer  "project_id"
-    t.integer  "author_id"
+    t.integer  "user_id"
     t.integer  "publishedDate"
     t.integer  "description"
     t.datetime "created_at"
@@ -44,13 +44,6 @@ ActiveRecord::Schema.define(version: 20131216163119) do
 
   create_table "project_followers", force: true do |t|
     t.integer  "user_id"
-    t.integer  "project_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "project_ideas", force: true do |t|
-    t.integer  "idea_id"
     t.integer  "project_id"
     t.datetime "created_at"
     t.datetime "updated_at"
