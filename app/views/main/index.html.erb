@@ -1,7 +1,16 @@
 <%= render "header" %>
-<%= render "menu_top" %>
 
-<div id="main_content" class="row"></div>
+<div id="main_content">
+	<div class="row">
+		<%= render "menu_top" %>
+		<div id="information_bar" class="small-12 large-12 columns">
+			Information Bar | Filter (date, name, etc)
+		</div>
+		<div id="content" class="small-12 large-12 columns">
+			Content
+		</div>
+	</div>
+</div>
 
 <%= render "footer" %>
 

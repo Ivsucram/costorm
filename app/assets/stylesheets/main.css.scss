@@ -18,3 +18,16 @@ footer
 		background: #F18020;
 		width: 100%;
 	}
+
+#main_content
+	{
+		background: #EEE8E4;
+		background: -moz-linear-gradient(top, #EEE8E4 0%, #D6D1CD 100%);
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #EEE8E4), color-stop(100%, #D6D1CD));
+		background: -webkit-linear-gradient(top, #EEE8E4 0%, #D6D1CD 100%);
+		background: -o-linear-gradient(top, #EEE8E4 0%, #D6D1CD 100%);
+		background: -ms-linear-gradient(top, #EEE8E4 0%, #D6D1CD 100%);
+		background: linear-gradient(top, #EEE8E4 0%, #D6D1CD 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#EEE8E4', endColorstr='#D6D1CD',GradientType=0);
+		width: 100%;
+	}

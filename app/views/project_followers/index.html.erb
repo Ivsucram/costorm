@@ -1,0 +1,29 @@
+<h1>Listing project_followers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Project</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @project_followers.each do |project_follower| %>
+      <tr>
+        <td><%= project_follower.user_id %></td>
+        <td><%= project_follower.project_id %></td>
+        <td><%= link_to 'Show', project_follower %></td>
+        <td><%= link_to 'Edit', edit_project_follower_path(project_follower) %></td>
+        <td><%= link_to 'Destroy', project_follower, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Project follower', new_project_follower_path %>

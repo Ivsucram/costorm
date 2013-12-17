@@ -19,9 +19,8 @@ Costorm::Application.routes.draw do
   resources :projects
   resources :ideas
   resources :keywords
-  resources :friends
-  resources :project_users
-  resources :project_ideas
+  resources :project_followers
+  resources :followers
   resources :idea_keywords
 
   # Example resource route with options:
