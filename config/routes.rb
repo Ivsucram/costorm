@@ -20,7 +20,6 @@ Costorm::Application.routes.draw do
   resources :ideas
   resources :keywords
   resources :project_followers
-  resources :followers
   resources :idea_keywords
 
   # Example resource route with options:

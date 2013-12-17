@@ -13,5 +13,10 @@ class CreateUsers < ActiveRecord::Migration
 
       t.timestamps
     end
+
+    create_table :user_followers, :id => false do |t|
+      t.integer :following_id
+      t.integer :follower_id
+    end
   end
 end

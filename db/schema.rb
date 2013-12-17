@@ -13,13 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20131216163119) do
 
-  create_table "followers", force: true do |t|
-    t.integer  "following_id"
-    t.integer  "follower_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "idea_keywords", force: true do |t|
     t.integer  "idea_id"
     t.integer  "keyword_id"
@@ -60,6 +53,11 @@ ActiveRecord::Schema.define(version: 20131216163119) do
     t.datetime "lastUpdateDate"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "user_followers", id: false, force: true do |t|
+    t.integer "following_id"
+    t.integer "follower_id"
   end
 
   create_table "users", force: true do |t|
