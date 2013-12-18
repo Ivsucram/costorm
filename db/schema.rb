@@ -60,6 +60,11 @@ ActiveRecord::Schema.define(version: 20131216163119) do
     t.integer "follower_id"
   end
 
+  create_table "user_following", id: false, force: true do |t|
+    t.integer "follower_id"
+    t.integer "following_id"
+  end
+
   create_table "users", force: true do |t|
     t.string   "name"
     t.string   "nick"
