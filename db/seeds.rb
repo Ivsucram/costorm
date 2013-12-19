@@ -9,3 +9,8 @@ traco = Project.create(name:'TRACO')
 user1 = User.create(name:'Marcus')
 user2 = User.create(name:'Hani')
 user3 = User.create(name:'Nico')
+
+idea = Idea.create(user:user1, project:traco)
+point1 = IdeaPoint.create(idea:idea, user:user1, vote:true)
+point2 = IdeaPoint.create(idea:idea, user:user1, vote:true)
+point3 = IdeaPoint.create(idea:idea, user:user1, vote:false)

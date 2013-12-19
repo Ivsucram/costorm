@@ -7,8 +7,6 @@ class CreateProjects < ActiveRecord::Migration
       t.integer :projectType
       t.boolean :isPublishedFlag
       t.datetime :publishedDate
-      t.datetime :createdDate
-      t.datetime :lastUpdateDate
 
       t.timestamps
     end

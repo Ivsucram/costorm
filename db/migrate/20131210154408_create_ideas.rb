@@ -3,7 +3,6 @@ class CreateIdeas < ActiveRecord::Migration
     create_table :ideas do |t|
       t.integer :project_id
       t.integer :user_id
-      t.integer :publishedDate
       t.integer :description
 
       t.timestamps

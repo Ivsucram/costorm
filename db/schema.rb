@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131216163119) do
+ActiveRecord::Schema.define(version: 20131218091848) do
 
   create_table "idea_keywords", force: true do |t|
     t.integer  "idea_id"
@@ -20,10 +20,17 @@ ActiveRecord::Schema.define(version: 20131216163119) do
     t.datetime "updated_at"
   end
 
+  create_table "idea_points", force: true do |t|
+    t.integer  "idea_id"
+    t.integer  "user_id"
+    t.boolean  "vote"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "ideas", force: true do |t|
     t.integer  "project_id"
     t.integer  "user_id"
-    t.integer  "publishedDate"
     t.integer  "description"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -49,8 +56,6 @@ ActiveRecord::Schema.define(version: 20131216163119) do
     t.integer  "projectType"
     t.boolean  "isPublishedFlag"
     t.datetime "publishedDate"
-    t.datetime "createdDate"
-    t.datetime "lastUpdateDate"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
