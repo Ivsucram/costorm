@@ -4,10 +4,55 @@ class User < ActiveRecord::Base
 	has_many :idea_points
 
 	has_many :project_followers
-	has_many :projects_followed, class_name: "Project", through: :project_followers, :source => :project, :foreign_key => "user_id"
+	has_many :projects_followed, class_name: 'Project', through: :project_followers, :source => :project, :foreign_key => 'user_id'
 
-	has_and_belongs_to_many :followers, class_name: "User", :join_table => "user_followers", :foreign_key => "following_id", :association_foreign_key => "follower_id"
-	has_and_belongs_to_many :followings, class_name: "User", :join_table => "user_following", :foreign_key => "follower_id", :association_foreign_key => "following_id"
+	has_and_belongs_to_many :followers, class_name: 'User', :join_table => 'user_followers', :foreign_key => 'following_id', :association_foreign_key => 'follower_id'
+	has_and_belongs_to_many :followings, class_name: 'User', :join_table => 'user_following', :foreign_key => 'follower_id', :association_foreign_key => 'following_id'
+
+	validates :name, 
+                presence: true,
+                length: { maximum: 50, too_long: 'Maximum is %{count} characters' },
+                format: { with: /\A[a-z0-9_-]{2,50}\Z/i, message: 'It not a valid name' }
+    validates :nick, 
+                presence: true,
+                length: { maximum: 16, too_long: 'Maximum is %{count} characters' },
+                uniqueness: true,
+                format: { with: /\A[a-z0-9_-]{3,16}\Z/i, message: 'Is not a valid nickname' }
+    validates :email, 
+                presence: true,
+                length: { maximum: 100, too_long: 'Maximum is %{count} characters' },
+                uniqueness: true,
+                format: { with: /\A([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})\Z/i, message: 'Is not a valid e-mail' }
+    validates :password, 
+                presence: true,
+                length: { maximum: 50, too_long: 'Maximum is %{count} characters' },
+                format: { with: /\A[a-z0-9_-]{6,50}\Z/i }
+    validates :company, 
+                length: { maximum: 100, too_long: 'Maximum is %{count} characters', message: 'Is not a valid password' },
+                allow_nil: true
+    validates :term_flag, 
+                presence: true,
+                inclusion: { in: [true, false] }
+    validates :confirmed_account, 
+                presence: true,
+                inclusion: { in: [true, false] }
+    validates :term_date, 
+                presence: true
+    validates :birthday, 
+                presence: true
+
+    validate :cannot_be_future_time
+    validate :cannot_be_future_date
+
+    private
+    def cannot_be_future_time
+        errors.add(:term_date, 'can not be future time') if term_date > Time.now
+    end
+
+    private
+    def cannot_be_future_date
+        errors.add(:birthday, 'can not be future date') if birthday > Date.now
+    end
 
 	def followers=(array)
 		array.each do |user|

@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20131218091848) do
   create_table "ideas", force: true do |t|
     t.integer  "project_id"
     t.integer  "user_id"
-    t.integer  "description"
+    t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -53,9 +53,9 @@ ActiveRecord::Schema.define(version: 20131218091848) do
     t.integer  "user_id"
     t.string   "name"
     t.string   "description"
-    t.integer  "projectType"
-    t.boolean  "isPublishedFlag"
-    t.datetime "publishedDate"
+    t.integer  "project_type"
+    t.boolean  "is_published_flag"
+    t.datetime "published_date"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -77,8 +77,8 @@ ActiveRecord::Schema.define(version: 20131218091848) do
     t.string   "password"
     t.string   "company"
     t.boolean  "termflag"
-    t.boolean  "confirmedAccount"
-    t.datetime "termDate"
+    t.boolean  "confirmed_account"
+    t.datetime "term_date"
     t.date     "birthday"
     t.datetime "created_at"
     t.datetime "updated_at"

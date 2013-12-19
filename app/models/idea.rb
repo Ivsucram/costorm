@@ -7,6 +7,13 @@ class Idea < ActiveRecord::Base
 	has_many :idea_keywords
 	has_many :keywords, class_name: "Keyword", through: :idea_keywords, :source => :keyword, :foreign_key => "idea_id"
 
+	validates :project_id,
+      			presence: true
+    validates :user_id,
+      			presence: true
+    validates :description,
+      			presence: true
+
 	def positive_points
 		self.idea_points.where(vote: true).count
 	end
