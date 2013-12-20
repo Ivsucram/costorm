@@ -9,24 +9,29 @@ class User < ActiveRecord::Base
 	has_and_belongs_to_many :followers, class_name: 'User', :join_table => 'user_followers', :foreign_key => 'following_id', :association_foreign_key => 'follower_id'
 	has_and_belongs_to_many :followings, class_name: 'User', :join_table => 'user_following', :foreign_key => 'follower_id', :association_foreign_key => 'following_id'
 
+#TODO: REGEX for name, nick, email, email_confirmation, password, password_confirmation
 	validates :name, 
                 presence: true,
-                length: { maximum: 50, too_long: 'Maximum is %{count} characters' },
-                format: { with: /\A[a-z0-9_-]{2,50}\Z/i, message: 'It not a valid name' }
+                length: { maximum: 50, too_long: 'Maximum is %{count} characters' }
     validates :nick, 
                 presence: true,
-                length: { maximum: 16, too_long: 'Maximum is %{count} characters' },
                 uniqueness: true,
-                format: { with: /\A[a-z0-9_-]{3,16}\Z/i, message: 'Is not a valid nickname' }
+                length: { maximum: 16, too_long: 'Maximum is %{count} characters' }
     validates :email, 
                 presence: true,
-                length: { maximum: 100, too_long: 'Maximum is %{count} characters' },
                 uniqueness: true,
-                format: { with: /\A([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})\Z/i, message: 'Is not a valid e-mail' }
+                confirmation: true,
+                length: { maximum: 100, too_long: 'Maximum is %{count} characters' }
+    validates :email_confirmation,
+                presence: true,
+                length: { maximum: 100, too_long: 'Maximum is %{count} characters' }
     validates :password, 
                 presence: true,
-                length: { maximum: 50, too_long: 'Maximum is %{count} characters' },
-                format: { with: /\A[a-z0-9_-]{6,50}\Z/i }
+                confirmation: true,
+                length: { maximum: 50, too_long: 'Maximum is %{count} characters' }
+    validates :password_confirmation,
+                presence: true,
+                length: { maximum: 50, too_long: 'Maximum is %{count} characters' }
     validates :company, 
                 length: { maximum: 100, too_long: 'Maximum is %{count} characters', message: 'Is not a valid password' },
                 allow_nil: true
@@ -51,7 +56,7 @@ class User < ActiveRecord::Base
 
     private
     def cannot_be_future_date
-        errors.add(:birthday, 'can not be future date') if birthday > Date.now
+        errors.add(:birthday, 'can not be future date') if birthday > Date.today
     end
 
 	def followers=(array)

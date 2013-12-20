@@ -76,7 +76,7 @@ ActiveRecord::Schema.define(version: 20131218091848) do
     t.string   "email"
     t.string   "password"
     t.string   "company"
-    t.boolean  "termflag"
+    t.boolean  "term_flag"
     t.boolean  "confirmed_account"
     t.datetime "term_date"
     t.date     "birthday"

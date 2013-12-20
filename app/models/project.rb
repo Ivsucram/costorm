@@ -5,12 +5,12 @@ class Project < ActiveRecord::Base
 	has_many :project_followers
 	has_many :followers, class_name: "User", through: :project_followers, :source => :user, :foreign_key => "project_id"
 
+#TODO: REGEX for name
 	validates :user_id, 
                 presence: true
     validates :name, 
                 presence: true,
-                length: { maximum: 100, too_long: 'Maximum is %{count} characters' },
-                format: { with: /\A[a-z0-9_-]{2,100}\Z/i, message: 'It not a valid name' }
+                length: { maximum: 100, too_long: 'Maximum is %{count} characters' }
     validates :description, 
                 presence: true
     validates :project_type, 
@@ -26,7 +26,7 @@ class Project < ActiveRecord::Base
 
     private
     def cannot_be_future_date
-        errors.add(:published_date, 'cannot be future date') if published_date > Date.now
+        errors.add(:published_date, 'cannot be future date') if published_date > Date.today
     end
 
 end

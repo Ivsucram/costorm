@@ -14,7 +14,9 @@ class Idea < ActiveRecord::Base
     validates :description,
       			presence: true
 
-	def positive_points
+    scope :positive_points, -> { idea_points.where(vote: true).count }
+
+	def positive_points2
 		self.idea_points.where(vote: true).count
 	end
 
