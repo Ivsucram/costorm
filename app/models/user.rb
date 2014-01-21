@@ -50,6 +50,8 @@ class User < ActiveRecord::Base
 
     before_validation :downcase_email
 
+    private
+
 	def followers=(array)
 		array.each do |user|
 			user.followings << self
@@ -63,17 +65,14 @@ class User < ActiveRecord::Base
 		end
 	end
 
-    private
     def cannot_be_future_time
         errors.add(:term_date, 'can not be future time') if term_date > Time.now
     end
 
-    private
     def cannot_be_future_date
         errors.add(:birthday, 'can not be future date') if birthday > Date.today
     end
 
-    private
     def downcase_email
         self.email = self.email.downcase
         if self.email_confirmation != nil

@@ -11,6 +11,7 @@ class Keyword < ActiveRecord::Base
     before_save :downcase_name
 
     private
+    
     def downcase_name
     	self.name = self.name.downcase
     end

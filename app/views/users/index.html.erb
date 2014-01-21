@@ -26,9 +26,9 @@
         <td><%= user.email %></td>
         <td><%= user.password %></td>
         <td><%= user.company %></td>
-        <td><%= user.termflag %></td>
-        <td><%= user.confirmedAccount %></td>
-        <td><%= user.termDate %></td>
+        <td><%= user.term_flag %></td>
+        <td><%= user.confirmed_account %></td>
+        <td><%= user.term_date %></td>
         <td><%= user.birthday %></td>
         <td><%= link_to 'Show', user %></td>
         <td><%= link_to 'Edit', edit_user_path(user) %></td>
@@ -38,6 +38,4 @@
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New User', new_user_path %>
+<br>  

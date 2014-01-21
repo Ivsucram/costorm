@@ -25,6 +25,7 @@ class Project < ActiveRecord::Base
     validate :cannot_be_future_date
 
     private
+    
     def cannot_be_future_date
         errors.add(:published_date, 'cannot be future date') if published_date > Date.today
     end

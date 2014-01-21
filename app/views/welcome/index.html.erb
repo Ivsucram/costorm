@@ -35,7 +35,21 @@
 		</div>
 
 		<div id="login_content_right" class="small-4 large-4 columns">
-			<%= form_for( @user, :html => { :id => "register_form" } ) do |f| -%>
+			<%= form_for @user, :url => { :action => 'create' }, :html => { :id => "register_form" } do |f| -%>
+				<% if @user.errors.any? %>
+					<div id="error_explanation">
+						<h2>
+							<%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:
+						</h2>
+
+						<ul>
+							<%= @user.errors.full_messages.each do |msg| %>
+								<li><%= msg %></li>
+							<% end %>
+						</ul>
+					</div>
+				<% end %>
+				
 				<h3> Sign-up</h3>
 				<p>
 					<%= f.text_field :name, :placeholder => "Name", :pattern => "[a-zA-Z ]{5,}", :maxlenght => "100", :required => "true" %>
@@ -53,10 +67,9 @@
 					<label>
 						Birthday
 						<div class="row collapse">
-							<div class="small-3 large-3 columns">
+							<div class="small-6 large-6 columns">
 								<select id="user_birthday_2i" name="user[birthday(2i)]">
-									<option value="0" selected>Month</option>
-								    <option value="1">January</option>
+								    <option value="1" selected>January</option>
 								    <option value="2">February</option>
 								    <option value="3">March</option>
 								    <option value="4">April</option>
@@ -72,18 +85,18 @@
 							</div>
 							<div class="small-3 large-3 columns">
 								<select id="user_birthday_3i" name="user[birthday(3i)]">
-								    <option value="0" selected>Day</option>
-								    <% (1..31).each do |i| %>
+								    <option value="1" selected>1</option>
+								    <% (2..31).each do |i| %>
 										<option value="<%= i %>"><%= i %></option>
 									<% end %>
 								</select>
 							</div>
-							<div class="small-6 large-6 columns">
+							<div class="small-3 large-3 columns">
 								<select id="user_birthday_1i" name="user[birthday(1i)]">
-									<option value="1899" selected>Year</option>
-									<% (1900..2013).each do |i| %>
+									<% (1900..(Date.today.year-1)).each do |i| %>
 										<option value="<%= i %>"><%= i %></option>
 									<% end %>
+									<option value="<%= Date.today.year %>" selected><%= Date.today.year %></option>
 								</select>
 							</div>
 						</div>

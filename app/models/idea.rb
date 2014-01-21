@@ -16,6 +16,8 @@ class Idea < ActiveRecord::Base
 
     scope :positive_points, -> { idea_points.where(vote: true).count }
 
+    private
+
 	def positive_points2
 		self.idea_points.where(vote: true).count
 	end
