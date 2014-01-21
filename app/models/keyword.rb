@@ -7,4 +7,11 @@ class Keyword < ActiveRecord::Base
       			presence: true,
       			uniqueness: true,
       			length: { maximum: 100, too_long: "Maximum is %{count} characters" }
+
+    before_save :downcase_name
+
+    private
+    def downcase_name
+    	self.name = self.name.downcase
+    end
 end

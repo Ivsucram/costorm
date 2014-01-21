@@ -47,6 +47,9 @@
 					<%= f.email_field :email, :placeholder => "Email", :maxlenght => "100", :required => "true" %>
 				</p>
 				<p>
+					<%= f.email_field :email_confirmation, :placeholder => "Confirm your email", :maxlenght => "100", :required => "true" %>
+				</p>
+				<p>
 					<label>
 						Birthday
 						<div class="row collapse">
@@ -90,10 +93,10 @@
 					<%= f.password_field :password, :placeholder =>"Password", :maxlenght => "50", :required => "true" %>
 				</p>
 				<p>
-					<%= f.password_field :confirmPassword, :placeholder =>"Confirm Password", :maxlenght => "50", :required => "true" %>
+					<%= f.password_field :password_confirmation, :placeholder =>"Confirm Password", :maxlenght => "50", :required => "true" %>
 				</p>
 				<p>
-					<%= f.check_box :termflag, :required => "true" %> I accept the terms 
+					<%= f.check_box :term_flag, :required => "true" %> I accept the terms 
 				</p>
 				<ul class="button-group round even-2">
 					<li><button type="submit" class="small button">Submit</button></li>
