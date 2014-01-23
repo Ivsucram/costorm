@@ -12,7 +12,7 @@ class WelcomeController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to index, notice: 'User was successfully created.' }
+        format.html { redirect_to '/', notice: 'User was successfully created.' }
       else
         format.html { render action: 'index' }
       end
