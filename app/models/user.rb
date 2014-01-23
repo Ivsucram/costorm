@@ -47,7 +47,7 @@ class User < ActiveRecord::Base
     validate :cannot_be_future_time
     validate :cannot_be_future_date
 
-    before_validation :downcase_email
+    after_validation :downcase_email
 
     private
 
@@ -73,7 +73,9 @@ class User < ActiveRecord::Base
     end
 
     def downcase_email
-        self.email = self.email.downcase
+        if self.email != nil
+            self.email = self.email.downcase
+        end
         if self.email_confirmation != nil
             self.email_confirmation = self.email.downcase
         end
