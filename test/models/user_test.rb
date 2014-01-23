@@ -145,4 +145,20 @@ class UserTest < ActiveSupport::TestCase
   	User.create(:nick => 'MyNickTest', :name => 'MyNameTest', :email => 'MyEmailTest@email.com', :password => 'zxcasdqwe', :term_flag => true, :confirmed_account => false, :term_date => Date.today)
   	assert(user_count == User.all.count, 'Should not create user')
   end
+
+  test 'validates cannot_be_future_time' do
+  	user_count = User.all.count
+  	
+  	# Validates presence
+  	User.create(:nick => 'MyNickTest', :name => 'MyNameTest', :email => 'MyEmailTest@email.com', :password => 'zxcasdqwe', :term_flag => true, :confirmed_account => false, :term_date => Time.now+1, :birthday => Date.today-100)
+  	assert(user_count == User.all.count, 'Should not create user')
+  end
+
+  test 'validates cannot_be_future_date' do
+  	user_count = User.all.count
+  	
+  	# Validates presence
+  	User.create(:nick => 'MyNickTest', :name => 'MyNameTest', :email => 'MyEmailTest@email.com', :password => 'zxcasdqwe', :term_flag => true, :confirmed_account => false, :term_date => Date.today, :birthday => Date.today+1)
+  	assert(user_count == User.all.count, 'Should not create user')
+  end
 end
