@@ -17,7 +17,6 @@ class User < ActiveRecord::Base
 #TODO: Make nick unique
     validates :nick, 
                 allow_nil: true,
-                presence: true,
                 uniqueness: true,
                 length: { maximum: 16, too_long: 'Maximum is %{count} characters' }
     validates :email, 
