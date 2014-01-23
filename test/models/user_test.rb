@@ -97,14 +97,18 @@ class UserTest < ActiveSupport::TestCase
   	end	
   end
 
-  test 'validates field email_confirmation' do
+  test 'validates field password' do
   	user_count = User.all.count
+  	
+  	# Validates presence
+  	User.create(:name => 'MyNameTest', :nick => 'MyNickTest', :email => 'MyEmailTest@email.com', :term_flag => true, :confirmed_account => false, :term_date => Date.today, :birthday => Date.today-100)
+  	assert(user_count == User.all.count, 'Should not create user')
 
   	# Validates length
-  	User.create(:name => 'MyNameTest', :nick => 'MyNickTest', :email => 'MyEmailTest@gmail.com', :email_confirmation => '1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901@gmail.com', :password => 'zxcasdqwe', :term_flag => true, :confirmed_account => false, :term_date => Date.today, :birthday => Date.today-100)
-  	assert(user_count == User.all.count, 'Should not create user')
-  	assert_difference('User.count') do
-  		User.create(:name => 'MyNameTest1', :nick => 'MyNickTest1', :email => '123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890@gmail.com', :email_confirmation => '123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890@gmail.com', :password => 'zxcasdqwe', :term_flag => true, :confirmed_account => false, :term_date => Date.today, :birthday => Date.today-100)
-  	end	
+  	User.create(:name => 'MyNameTest', :nick => 'MyNickTest', :email => 'MyEmailTest@email.com', :password => '123456789012345678901234567890123456789012345678901', :term_flag => true, :confirmed_account => false, :term_date => Date.today, :birthday => Date.today-100)
+	assert(user_count == User.all.count, 'Should not create user')  	
+	assert_difference('User.count') do
+		User.create(:name => 'MyNameTest', :nick => 'MyNickTest', :email => 'MyEmailTest@email.com', :password => '12345678901234567890123456789012345678901234567890', :term_flag => true, :confirmed_account => false, :term_date => Date.today, :birthday => Date.today-100)
+	end
   end
 end

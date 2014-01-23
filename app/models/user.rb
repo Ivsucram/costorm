@@ -24,13 +24,9 @@ class User < ActiveRecord::Base
                 uniqueness: true,
                 confirmation: true,
                 length: { maximum: 100, too_long: 'Maximum is %{count} characters' }
-    validates :email_confirmation,
-                length: { maximum: 100, too_long: 'Maximum is %{count} characters' }
     validates :password, 
                 presence: true,
                 confirmation: true,
-                length: { maximum: 50, too_long: 'Maximum is %{count} characters' }
-    validates :password_confirmation,
                 length: { maximum: 50, too_long: 'Maximum is %{count} characters' }
     validates :company, 
                 length: { maximum: 100, too_long: 'Maximum is %{count} characters', message: 'Is not a valid password' },
