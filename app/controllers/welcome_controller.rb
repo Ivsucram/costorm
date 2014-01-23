@@ -28,8 +28,8 @@ class WelcomeController < ApplicationController
 
     respond_to do |format|
       if User.find_by(email: @user.email, password: @user.password)
-        format.html { redirect_to main_desktop_path}
         cookies.permanent[:email] = @user.email
+        format.html { redirect_to main_desktop_path }
       else
         format.html { render action: 'index' }
       end
