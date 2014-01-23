@@ -11,8 +11,7 @@ class UserTest < ActiveSupport::TestCase
   # CRUD C
   test 'should create' do
   	assert_difference('User.count') do
-  		user = User.create(:name => 'MyNameTest', :nick => 'MyNickTest', :email => 'MyEmailTest@email.com', :password => 'zxcasdqwe', :term_flag => true, :confirmed_account => false, :term_date => Date.today, :birthday => Date.today-100)
-  		assert(user.email == 'myemailtest@email.com', 'User.create was expected to downcase email')
+  		User.create(:name => 'MyNameTest', :nick => 'MyNickTest', :email => 'MyEmailTest@email.com', :password => 'zxcasdqwe', :term_flag => true, :confirmed_account => false, :term_date => Date.today, :birthday => Date.today-100)
   	end 	
   end
 
@@ -56,10 +55,9 @@ class UserTest < ActiveSupport::TestCase
   end  
 
   test 'validates field nick' do
-  	user = nil
   	# Validates allow_nil
   	assert_difference('User.count') do
-  		user = User.create(:name => 'MyNameTest', :email => 'MyEmailTest@email.com', :password => 'zxcasdqwe', :term_flag => true, :confirmed_account => false, :term_date => Date.today, :birthday => Date.today-100)
+  		User.create(:name => 'MyNameTest', :email => 'MyEmailTest@email.com', :password => 'zxcasdqwe', :term_flag => true, :confirmed_account => false, :term_date => Date.today, :birthday => Date.today-100)
   	end
   	assert_difference('User.count') do
   		User.create(:name => 'MyNameTest', :email => 'MyEmailTest2@email.com', :password => 'zxcasdqwe', :term_flag => true, :confirmed_account => false, :term_date => Date.today, :birthday => Date.today-100)
@@ -160,5 +158,12 @@ class UserTest < ActiveSupport::TestCase
   	# Validates presence
   	User.create(:nick => 'MyNickTest', :name => 'MyNameTest', :email => 'MyEmailTest@email.com', :password => 'zxcasdqwe', :term_flag => true, :confirmed_account => false, :term_date => Date.today, :birthday => Date.today+1)
   	assert(user_count == User.all.count, 'Should not create user')
+  end
+
+  test 'after validation downcase_email' do
+  	assert_difference('User.count') do
+  		user = User.create(:name => 'MyNameTest', :nick => 'MyNickTest', :email => 'MyEmailTest@email.com', :password => 'zxcasdqwe', :term_flag => true, :confirmed_account => false, :term_date => Date.today, :birthday => Date.today-100)
+  		assert(user.email == 'myemailtest@email.com', 'User.create was expected to downcase email')
+  	end 	
   end
 end
