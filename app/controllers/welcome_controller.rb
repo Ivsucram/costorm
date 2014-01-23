@@ -1,6 +1,9 @@
 class WelcomeController < ApplicationController
   # GET /
   def index
+    if cookies[:email]
+      redirect_to main_desktop_path
+    end
     @user = User.new
   end
 
@@ -21,11 +24,25 @@ class WelcomeController < ApplicationController
 
   # POST /
   def signin
+    @user = User.new(login_user_params)
+
+    respond_to do |format|
+      if User.find_by(email: @user.email, password: @user.password)
+        format.html { redirect_to main_desktop_path}
+        cookies.permanent[:email] = @user.email
+      else
+        format.html { render action: 'index' }
+      end
+    end
   end
 
   private
 
   def new_user_params
   	params.require(:user).permit(:name, :nick, :email, :password, :term_flag, :birthday)
+  end
+
+  def login_user_params
+    params.require(:user).permit(:email, :password)
   end
 end

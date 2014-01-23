@@ -1,27 +1,26 @@
 <div id="login_top" class="row">
 	<header>
-		<form id="login_form">
-			<div class="small-6 large-6 columns"><%= image_tag("logo_top.png", alt:"logo") %></div>
+		<%= form_for @user, :url => { :action => 'signin' }, :html => { :id => 'signin_form'} do |f| -%>
+			<div class="small-6 large-6 columns">
+				<%= image_tag("logo_top.png", alt:"logo") %>
+			</div>
 			<div class="small-6 large-6 columns">
 				<div class="small-2 large-2 columns">
 					<span class="prefix">Sign in</span>
 				</div>
 				<div class="small-5 large-5 columns">
-					<input name="emailNick" type="text" placeholder="Email/Nick"/>
+					<%= f.email_field :email, :placeholder => "Email", :maxlenght => "100", :required => "true" %>
 				</div>
 				<div class="small-5 large-5 columns">
-					<div class="row collapse">
-						<div class="small-9 large-9 columns">
-							<input name="password" type="password" placeholder="Password"/>
-						</div>
-						<div class="small-3 large-3 columns">
-							<input type="hidden" name="loginSubmit" value="true"/>
-							<button class="button prefix" type="submit">Login</a>
-						</div>
+					<div class="small-9 large-9 columns">
+						<%= f.password_field :password, :placeholder =>"Password", :maxlenght => "50", :required => "true" %>
+					</div>
+					<div class="small-3 large-3 columns">
+						<button class="button prefix" type="submit">Login</a>
 					</div>
 				</div>
 			</div>
-		</form>
+		<% end -%>
 	</header>
 </div>
 
@@ -35,7 +34,7 @@
 		</div>
 
 		<div id="login_content_right" class="small-4 large-4 columns">
-			<%= form_for @user, :url => { :action => 'signup' }, :html => { :id => "register_form" } do |f| -%>
+			<%= form_for @user, :url => { :action => 'signup' }, :html => { :id => "signup_form" } do |f| -%>
 				<% if @user.errors.any? %>
 					<div id="error_explanation">
 						<h2>

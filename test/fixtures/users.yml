@@ -8,8 +8,8 @@ good_one:
   password: MyPassword
   term_flag: true
   confirmed_account: false
-  term_date: 2013-12-10 23:40:49
-  birthday: 2013-12-10
+  term_date: <%= Date.today %>
+  birthday: <%= Date.today-1 %>
 
 good_two:
   name: MyOtherName
@@ -18,5 +18,5 @@ good_two:
   password: MyOtherPassword
   term_flag: true
   confirmed_account: true
-  term_date: 2013-12-11 23:00:00
-  birthday: 2013-12-11
+  term_date: <%= Date.today %>
+  birthday: <%= Date.today-1 %>
