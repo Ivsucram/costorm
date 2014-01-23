@@ -67,11 +67,11 @@ class UserTest < ActiveSupport::TestCase
 
   	# Validates uniqueness
   	user_count = User.all.count
-  	User.create(:name => 'MyNameTest', :nick => User.first.nick, :email => 'MyEmailTest@email.com', :password => 'zxcasdqwe', :term_flag => true, :confirmed_account => false, :term_date => Date.today, :birthday => Date.today-100)
+  	User.create(:name => 'MyNameTest', :nick => User.first.nick, :email => 'MyEmailTest3@email.com', :password => 'zxcasdqwe', :term_flag => true, :confirmed_account => false, :term_date => Date.today, :birthday => Date.today-100)
   	assert(user_count == User.all.count, 'Should not create user')
 
   	# Validates length
-  	User.create(:name => 'MyNameTest', :nick => '12345678901234567', :email => 'MyEmailTest@email.com', :password => 'zxcasdqwe', :term_flag => true, :confirmed_account => false, :term_date => Date.today, :birthday => Date.today-100)
+  	User.create(:name => 'MyNameTest', :nick => '12345678901234567', :email => 'MyEmailTest3@email.com', :password => 'zxcasdqwe', :term_flag => true, :confirmed_account => false, :term_date => Date.today, :birthday => Date.today-100)
   	assert(user_count == User.all.count, 'Should not create user')
   	assert_difference('User.count') do
   		User.create(:name => 'MyNameTest', :nick => '1234567890123456', :email => 'MyEmailTest3@email.com', :password => 'zxcasdqwe', :term_flag => true, :confirmed_account => false, :term_date => Date.today, :birthday => Date.today-100)
@@ -110,5 +110,20 @@ class UserTest < ActiveSupport::TestCase
 	assert_difference('User.count') do
 		User.create(:name => 'MyNameTest', :nick => 'MyNickTest', :email => 'MyEmailTest@email.com', :password => '12345678901234567890123456789012345678901234567890', :term_flag => true, :confirmed_account => false, :term_date => Date.today, :birthday => Date.today-100)
 	end
+  end
+
+  test 'validates field company' do
+  	# Validates allow_nil
+  	assert_difference('User.count') do
+  		user = User.create(:name => 'MyNameTest', :nick => 'MyNickTest', :email => 'MyEmailTest@email.com', :password => 'zxcasdqwe', :term_flag => true, :confirmed_account => false, :term_date => Date.today, :birthday => Date.today-100)
+  	end
+
+  	# Validates length
+  	user_count = User.all.count
+  	User.create(:name => 'MyNameTest', :nick => 'MyNickTes2', :email => 'MyEmailTest2@email.com', :password => 'zxcasdqwe', :company => '12345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901' , :term_flag => true, :confirmed_account => false, :term_date => Date.today, :birthday => Date.today-100)
+  	assert(user_count == User.all.count, 'Should not create user')
+  	assert_difference('User.count') do
+  		User.create(:name => 'MyNameTest', :nick => 'MyNickTes2', :email => 'MyEmailTest2@email.com', :password => 'zxcasdqwe', :company => '1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890', :term_flag => true, :confirmed_account => false, :term_date => Date.today, :birthday => Date.today-100)
+  	end
   end
 end
