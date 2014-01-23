@@ -5,7 +5,7 @@ class WelcomeController < ApplicationController
   end
 
   # POST /
-  def create
+  def signup
     @user = User.new(new_user_params)
     @user.term_date = Date.today
     @user.confirmed_account = false
@@ -17,6 +17,10 @@ class WelcomeController < ApplicationController
         format.html { render action: 'index' }
       end
     end
+  end
+
+  # POST /
+  def signin
   end
 
   private

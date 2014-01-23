@@ -6,13 +6,13 @@ Costorm::Application.routes.draw do
 
 
   # You can have the root of your site routed with "root"
-  #root 'welcome#index'
+  root 'welcome#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
-  get '/', as: 'root', to: 'welcome#index'
-  post '/create', as: 'create', to: 'welcome#create'
-  get 'main/index', as: 'main_desktop', to: 'main#index'
+  post '/signip', as: 'signup',       to: 'welcome#signup'
+  post '/signin', as: 'signin',       to: 'welcome#signin'
+  get  '/main',   as: 'main_desktop', to: 'main#index'
 
 
 
