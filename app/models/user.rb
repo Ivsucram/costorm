@@ -29,8 +29,8 @@ class User < ActiveRecord::Base
                 confirmation: true,
                 length: { maximum: 50, too_long: 'Maximum is %{count} characters' }
     validates :company, 
-                length: { maximum: 100, too_long: 'Maximum is %{count} characters', message: 'Is not a valid password' },
-                allow_nil: true
+                allow_nil: true,
+                length: { maximum: 100, too_long: 'Maximum is %{count} characters', message: 'Is not a valid password' }
     validates :term_flag,
                 inclusion: { in: [true, false] }
     validates :confirmed_account,
@@ -61,11 +61,15 @@ class User < ActiveRecord::Base
 	end
 
     def cannot_be_future_time
-        errors.add(:term_date, 'can not be future time') if term_date > Time.now
+        if term_date != nil
+            errors.add(:term_date, 'can not be future time') if term_date > Time.now
+        end
     end
 
     def cannot_be_future_date
-        errors.add(:birthday, 'can not be future date') if birthday > Date.today
+        if birthday != nil
+            errors.add(:birthday, 'can not be future date') if birthday > Date.today
+        end
     end
 
     def downcase_email
