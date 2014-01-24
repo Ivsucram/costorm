@@ -29,3 +29,4 @@ Please feel free to use a different markup language if you do not plan to run
 
 TODO: Integration tests
 TODO: Don't pass password and other user information as plain text
+TODO: REGEX for models
