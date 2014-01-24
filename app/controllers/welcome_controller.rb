@@ -4,7 +4,9 @@ class WelcomeController < ApplicationController
     if cookies[:email]
       redirect_to main_desktop_path
     end
-    @user = User.new
+    if !@user
+      @user = User.new
+    end
   end
 
   # POST /
@@ -32,6 +34,8 @@ class WelcomeController < ApplicationController
         format.html { redirect_to main_desktop_path }
       else
         format.html { render action: 'index' }
+        @user = User.new
+        @user.errors[:login] = 'Email or Password invalid, please try again'
       end
     end
   end

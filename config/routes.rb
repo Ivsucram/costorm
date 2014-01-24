@@ -10,9 +10,10 @@ Costorm::Application.routes.draw do
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
-  post '/signup', as: 'signup',       to: 'welcome#signup'
-  post '/signin', as: 'signin',       to: 'welcome#signin'
-  get  '/main',   as: 'main_desktop', to: 'main#index'
+  post '/signup',  as: 'signup',       to: 'welcome#signup'
+  post '/signin',  as: 'signin',       to: 'welcome#signin'
+  get  '/signout', as: 'signout',      to: 'main#signout'
+  get  '/main',    as: 'main_desktop', to: 'main#index'
 
 
 

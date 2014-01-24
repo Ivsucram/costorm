@@ -16,7 +16,6 @@ class WelcomeControllerTest < ActionController::TestCase
   end
 
   test 'should login user' do
-
   	post :signin, user: {email: users(:good_one).email, password: users(:good_one).password}
   	assert_redirected_to main_desktop_path
   end

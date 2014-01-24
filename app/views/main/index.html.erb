@@ -3,11 +3,19 @@
 <div id="main_content">
 	<div class="row">
 		<%= render "menu_top" %>
-		<div id="information_bar" class="small-12 large-12 columns">
+		<div id="information_bar">
 			Information Bar | Filter (date, name, etc)
 		</div>
-		<div id="content" class="small-12 large-12 columns">
-			Content
+		<div id="content" class="row	">
+			<div class="small-3 large-3 columns">
+				<p>Photo: <%= @user.name %></p>
+				<p>My Projects</p>
+				<p>Notifications</p>
+				<p>Following</p>
+				<p>Configuration</p>
+				<p><%= link_to 'Sign out', signout_path %></p>
+			</div>
+			<div class="small-9 large-9 columns">Content</div>
 		</div>
 	</div>
 </div>
