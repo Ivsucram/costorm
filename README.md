@@ -27,6 +27,6 @@ Things you may want to cover:
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
 
-TODO: Integration tests
-TODO: Don't pass password and other user information as plain text
-TODO: REGEX for models
+* TODO: Integration tests
+* TODO: Don't pass password and other user information as plain text
+* TODO: REGEX for models
