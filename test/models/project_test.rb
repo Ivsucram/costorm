@@ -62,5 +62,19 @@ class ProjectTest < ActiveSupport::TestCase
     project = Project.create(:user_id => @project.user_id, :name => @project.name, :project_type => @project.project_type, :is_published_flag => @project.is_published_flag, :published_date => @project.published_date)
     assert !project.save
   end
+
+  test 'validates project_type field' do
+    #Validates presence
+    project = Project.create(:user_id => @project.user_id, :name => @project.name, :description => @project.description, :is_published_flag => @project.is_published_flag, :published_date => @project.published_date)
+    assert !project.save
+
+    #Validates numericality
+    project = Project.create(:user_id => @project.user_id, :name => @project.name, :description => @project.description, :project_type => 'A', :is_published_flag => @project.is_published_flag, :published_date => @project.published_date)
+    assert !project.save
+
+    #validates inclusion
+    project = Project.create(:user_id => @project.user_id, :name => @project.name, :description => @project.description, :project_type => '3', :is_published_flag => @project.is_published_flag, :published_date => @project.published_date)
+    assert !project.save
+  end
   
 end
