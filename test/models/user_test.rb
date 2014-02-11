@@ -138,13 +138,11 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test 'validates cannot_be_future_time' do
-  	# Validates presence
   	user = User.new(:nick => 'MyNickTest', :name => 'MyNameTest', :email => 'MyEmailTest@email.com', :password => 'zxcasdqwe', :term_flag => true, :confirmed_account => false, :term_date => Time.now+1, :birthday => Date.today-100)
   	assert = !user.save
   end
 
   test 'validates cannot_be_future_date' do
-  	# Validates presence
   	user = User.new(:nick => 'MyNickTest', :name => 'MyNameTest', :email => 'MyEmailTest@email.com', :password => 'zxcasdqwe', :term_flag => true, :confirmed_account => false, :term_date => Date.today-1, :birthday => Date.today+1)
   	assert = !user.save
   end

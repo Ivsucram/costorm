@@ -19,8 +19,6 @@ class Project < ActiveRecord::Base
                 inclusion: { in: [1, 2], message: "This value is not acceptable" }
     validates :is_published_flag, 
                 inclusion: { in: [true, false] }
-    validates :published_date, 
-                presence: false
             
     validate :cannot_be_future_date
 

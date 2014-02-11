@@ -76,5 +76,12 @@ class ProjectTest < ActiveSupport::TestCase
     project = Project.create(:user_id => @project.user_id, :name => @project.name, :description => @project.description, :project_type => '3', :is_published_flag => @project.is_published_flag, :published_date => @project.published_date)
     assert !project.save
   end
+
+  # TODO test 'validates is_published_flag field'
+  
+  test 'validates cannot_be_future_time' do
+    project = Project.create(:user_id => @project.user_id, :name => @project.name, :description => @project.description, :project_type => @project.project_type, :is_published_flag => @project.is_published_flag, :published_date => Date.today+1)
+    assert !project.save
+  end
   
 end
