@@ -42,5 +42,19 @@ class ProjectTest < ActiveSupport::TestCase
     project = Project.create(:name => @project.name, :description => @project.description, :project_type => @project.project_type, :is_published_flag => @project.is_published_flag, :published_date => @project.published_date)
     assert !project.save
   end
+
+  test 'validates name field' do
+    #Validates presence
+    project = Project.create(:user => @project.user_id, :description => @project.description, :project_type => @project.project_type, :is_published_flag => @project.is_published_flag, :published_date => @project.published_date)
+    assert !project.save
+
+    #Validates lenght
+    project = Project.create(:user => @project.user_id, :name => '12345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901', :description => @project.description, :project_type => @project.project_type, :is_published_flag => @project.is_published_flag, :published_date => @project.published_date)
+    assert !project.save   
+
+    assert_difference('Project.count') do
+      Project.create(:user => @project.user_id, :name => '1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890', :description => @project.description, :project_type => @project.project_type, :is_published_flag => @project.is_published_flag, :published_date => @project.published_date)
+    end 
+  end
   
 end

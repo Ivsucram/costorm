@@ -46,11 +46,11 @@ class UserTest < ActiveSupport::TestCase
 
   	# Validates length
   	user = User.new(:name => '123456789012345678901234567890123456789012345678901', :nick => 'MyNickTest', :email => 'MyEmailTest@email.com', :password => 'zxcasdqwe', :term_flag => true, :confirmed_account => false, :term_date => Date.today-1, :birthday => Date.today-100)
-	assert !user.save
+	  assert !user.save
 
-	assert_difference('User.count') do
-		User.create(:name => '12345678901234567890123456789012345678901234567890', :nick => 'MyNickTest', :email => 'MyEmailTest@email.com', :password => 'zxcasdqwe', :term_flag => true, :confirmed_account => false, :term_date => Date.today-1, :birthday => Date.today-100)
-	end
+	  assert_difference('User.count') do
+		  User.create(:name => '12345678901234567890123456789012345678901234567890', :nick => 'MyNickTest', :email => 'MyEmailTest@email.com', :password => 'zxcasdqwe', :term_flag => true, :confirmed_account => false, :term_date => Date.today-1, :birthday => Date.today-100)
+	  end
   end  
 
   test 'validates field nick' do
@@ -81,7 +81,7 @@ class UserTest < ActiveSupport::TestCase
   	assert = !user.save
 
   	# Validates uniqueness
-	user = User.new(:name => 'MyNameTest', :nick => 'MyNickTest', :email => User.first.email, :password => 'zxcasdqwe', :term_flag => true, :confirmed_account => false, :term_date => Date.today-1, :birthday => Date.today-100)
+	  user = User.new(:name => 'MyNameTest', :nick => 'MyNickTest', :email => User.first.email, :password => 'zxcasdqwe', :term_flag => true, :confirmed_account => false, :term_date => Date.today-1, :birthday => Date.today-100)
   	assert = !user.save
 
   	# Validates length
