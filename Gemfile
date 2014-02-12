@@ -12,6 +12,7 @@ end
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
+gem 'compass-rails'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 2.1.1'
@@ -47,8 +48,6 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-
-gem 'foundation-rails'
 
 group :production do
 	gem 'pg', '0.15.1'

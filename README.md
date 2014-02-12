@@ -30,3 +30,5 @@ Please feel free to use a different markup language if you do not plan to run
 * TODO: Integration tests
 * TODO: Don't pass password and other user information as plain text
 * TODO: REGEX for models
+* TODO: Review how sacc and scss files work on the rails models and how the compass compile can automatically compile it to the user
+* TODO: Functionality test of login and logout

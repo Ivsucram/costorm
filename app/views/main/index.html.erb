@@ -1,24 +1,38 @@
-<%= render "header" %>
-
-<div id="main_content">
-	<div class="row">
-		<%= render "menu_top" %>
-		<div id="information_bar">
-			Information Bar | Filter (date, name, etc)
-		</div>
-		<div id="content" class="row	">
-			<div class="small-3 large-3 columns">
-				<p>Photo: <%= @user.name %></p>
-				<p>My Projects</p>
-				<p>Notifications</p>
-				<p>Following</p>
-				<p>Configuration</p>
-				<p><%= link_to 'Sign out', signout_path %></p>
-			</div>
-			<div class="small-9 large-9 columns">Content</div>
-		</div>
+<div class="overlay-new-project hide">
+	<div class="box-new-project">
+		<a href="#" class="modal-close hide-text">close</a>
 	</div>
 </div>
 
-<%= render "footer" %>
+<div id="container">
+	<%= render "header" %>
 
+	<section class="wrapper">
+		<%= render "menu_top" %>
+
+		<section class="project">
+			<header class="project-header">
+				<a href="#" class="back hide-text">Back</a>
+				<h2 class="project-title">Projeto lorem ipsum sit amet dolor</h2>
+				<ul class="project-settings">
+					<li class="time lowercase"><%= image_tag("icons/time.png") %>53h : 23m : 45s</li>
+					<li class="participants"><a href="#"><%= image_tag("icons/people.png") %>15 people</a></li>
+					<li class=""><a href="#"><%= image_tag("icons/public.png") %>Public</a></li>
+				</ul>
+			</header>
+		
+			<nav class="content-nav">
+				<ul>
+					<li class="active"><a href="#">Ideas</a></li>
+					<li><a href="#">Management</a></li>
+					<li><a href="#">Generator</a></li>
+					<li><a href="#">Invite Friends</a></li>
+					<li><a href="#">Deposit</a></li>
+				</ul>
+			</nav>
+			
+			<section class="content">	
+			</section>
+		</section>
+	</section>
+</div>
