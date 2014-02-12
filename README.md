@@ -3,8 +3,8 @@
 Gustavo!!! Write it here!
 
 <h1>Ruby and Rails version</h1>
-+Ruby 2.0.0p247 (2013-06-27 revision 41674)
-+Rails 4.0.2
++ Ruby 2.0.0p247 (2013-06-27 revision 41674)
++ Rails 4.0.2
 
 
 <h1>TODO</h1>
