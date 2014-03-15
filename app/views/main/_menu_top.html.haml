@@ -1,0 +1,22 @@
+%nav.menu
+  %a.profile{href: "#"}
+    %span.darken
+    %img.icon-expand/
+  %ul
+    %a{href: "#"}
+      %li
+        = image_tag("icons/projects.png", :class => "icon-fix")
+        Projects
+    %a{href: "#"}
+      %li
+        = image_tag("icons/friends.png", :class => "icon-fix")
+        Friends
+    %a{href: "#"}
+      %li
+        = image_tag("icons/notifications.png", :class => "icon-fix")
+        Notifications
+    %a{href: "#"}
+      %li
+        = image_tag("icons/settings.png", :class => "icon-fix")
+        Settings
+    = link_to 'Signout', signout_path

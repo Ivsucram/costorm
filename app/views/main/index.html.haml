@@ -1,0 +1,36 @@
+.overlay-new-project.hide
+  .box-new-project
+    %a.modal-close.hide-text{href: "#"} close
+#container
+  = render "header"
+  %section.wrapper
+    = render "menu_top"
+    %section.project
+      %header.project-header
+        %a.back.hide-text{href: "#"} Back
+        %h2.project-title Projeto lorem ipsum sit amet dolor
+        %ul.project-settings
+          %li.time.lowercase
+            = image_tag("icons/time.png")
+            53h : 23m : 45s
+          %li.participants
+            %a{href: "#"}
+              = image_tag("icons/people.png")
+              15 people
+          %li
+            %a{href: "#"}
+              = image_tag("icons/public.png")
+              Public
+      %nav.content-nav
+        %ul
+          %li.active
+            %a{href: "#"} Ideas
+          %li
+            %a{href: "#"} Management
+          %li
+            %a{href: "#"} Generator
+          %li
+            %a{href: "#"} Invite Friends
+          %li
+            %a{href: "#"} Deposit
+      %section.content
