@@ -1,78 +1,65 @@
-#login_top.row
-  %header
-    = form_for @user, :url => { :action => 'signin' }, :html => { :id => 'signin_form'} do |f|
-      .small-6.large-6.columns
-        = image_tag("logo_top.png", alt:"logo")
-      .small-6.large-6.columns
-        - if @user.errors[:login].count > 0
-          %ul
-            - @user.errors.full_messages.each do |msg|
-              %li= msg
-        .small-2.large-2.columns
-          %span.prefix Sign in
-        .small-5.large-5.columns
-          = f.email_field :email, :placeholder => "Email", :maxlenght => "100", :required => "true"
-        .small-5.large-5.columns
-          .small-9.large-9.columns
-            = f.password_field :password, :placeholder =>"Password", :maxlenght => "50", :required => "true"
-          .small-3.large-3.columns
-            %button.button.prefix{type: "submit"}
-              Login
-#login_content
-  .row
-    #logint_content_left.small-8.large-8.columns
-      = image_tag("logo_welcome.png", alt:"logo welcome")
-      .flex-video
-        %iframe{allowfullscreen: "", frameborder: "0", height: "315", src: "http://www.youtube.com/embed/hXZjzrvuFXg", witdth: "560"}
-    #login_content_right.small-4.large-4.columns
-      = form_for @user, :url => { :action => 'signup' }, :html => { :id => "signup_form" } do |f|
-        - if @user.errors.any? && @user.errors[:login].empty?
-          %ul
-            - @user.errors.full_messages.each do |msg|
-              %li= msg
-        %h3 Sign-up
-        %p= f.text_field :name, :placeholder => "Name", :pattern => "[a-zA-Z ]{5,}", :maxlenght => "100", :required => "true"
-        %p= f.text_field :nick, :placeholder => "Nick", :pattern => "[a-zA-Z ]{5,}", :maxlenght => "50", :required => "true"
-        %p= f.email_field :email, :placeholder => "Email", :maxlenght => "100", :required => "true"
-        %p= f.email_field :email_confirmation, :placeholder => "Confirm your email", :maxlenght => "100", :required => "true"
-        %p
-          %label
-            Birthday
-            .row.collapse
-              .small-6.large-6.columns
-                %select#user_birthday_2i{name: "user[birthday(2i)]"}
-                  %option{selected: "selected", value: "1"} January
-                  %option{value: "2"} February
-                  %option{value: "3"} March
-                  %option{value: "4"} April
-                  %option{value: "5"} May
-                  %option{value: "6"} June
-                  %option{value: "7"} July
-                  %option{value: "8"} August
-                  %option{value: "9"} September
-                  %option{value: "10"} November
-                  %option{value: "11"} September
-                  %option{value: "12"} December
-              .small-3.large-3.columns
-                %select#user_birthday_3i{name: "user[birthday(3i)]"}
-                  %option{selected: "selected", value: "1"} 1
-                  - (2..31).each do |i|
-                    %option{value: i}= i
-              .small-3.large-3.columns
-                %select#user_birthday_1i{name: "user[birthday(1i)]"}
-                  - (1900..(Date.today.year-1)).each do |i|
-                    %option{value: i}= i
-                  %option{selected: "selected", value: Date.today.year}= Date.today.year
-        %p= f.password_field :password, :placeholder =>"Password", :maxlenght => "50", :required => "true"
-        %p= f.password_field :password_confirmation, :placeholder =>"Confirm Password", :maxlenght => "50", :required => "true"
-        %p
-          = f.check_box :term_flag, :required => "true" 
-          I accept the terms
-        %ul.button-group.round.even-2
-          %li
-            %button.small.button{type: "submit"} Submit
-          %li
-            %button.small.button.alert{type: "reset"} Reset
-%footer
-  #footer.row
-    Upgrade | Advertise | Merch | Press | Careers | Privacy | Copyrights | Terms | Help
+%nav.top_navigation
+  %a{href: "#"}
+    %h1.logo.hide_text CoStorm
+  = form_for @user, :url => { :action => 'signin' }, :html => { :id => 'signin_form'} do |f|
+    - if @user.errors[:login].count > 0
+      %ul
+        - @user.errors.full_messages.each do |msg|
+          %li= msg
+    = f.email_field :email, :placeholder => "Email", :maxlenght => "100", :required => "true"
+    = f.password_field :password, :placeholder =>"Password", :maxlenght => "50", :required => "true"
+    %button.login{type: "submit"}
+      Login
+
+%section.wrapper
+  %nav.content_nav
+    %h1.logo_big.hide_text CoStorm
+    .flex-video
+      %iframe{allowfullscreen: "", frameborder: "0", height: "315", src: "http://www.youtube.com/embed/hXZjzrvuFXg", witdth: "560"}
+  %section.content
+    = form_for @user, :url => { :action => 'signup' }, :html => { :id => "signup_form" } do |f|
+      - if @user.errors.any? && @user.errors[:login].empty?
+        %ul
+          - @user.errors.full_messages.each do |msg|
+            %li= msg
+      %h3 Sign-up
+      %p= f.text_field :name, :placeholder => "Name", :pattern => "[a-zA-Z ]{5,}", :maxlenght => "100", :required => "true"
+      %p= f.text_field :nick, :placeholder => "Nick", :pattern => "[a-zA-Z ]{5,}", :maxlenght => "50", :required => "true"
+      %p= f.email_field :email, :placeholder => "Email", :maxlenght => "100", :required => "true"
+      %p= f.email_field :email_confirmation, :placeholder => "Confirm your email", :maxlenght => "100", :required => "true"
+      %p
+        %label
+          Birthday 
+          %br
+          %select#user_birthday_2i{name: "user[birthday(2i)]"}
+            %option{selected: "selected", value: "1"} January
+            %option{value: "2"} February
+            %option{value: "3"} March
+            %option{value: "4"} April
+            %option{value: "5"} May
+            %option{value: "6"} June
+            %option{value: "7"} July
+            %option{value: "8"} August
+            %option{value: "9"} September
+            %option{value: "10"} November
+            %option{value: "11"} September
+            %option{value: "12"} December
+          %select#user_birthday_3i{name: "user[birthday(3i)]"}
+            %option{selected: "selected", value: "1"} 1
+            - (2..31).each do |i|
+              %option{value: i}= i
+          %select#user_birthday_1i{name: "user[birthday(1i)]"}
+            - (1900..(Date.today.year-1)).each do |i|
+              %option{value: i}= i
+            %option{selected: "selected", value: Date.today.year}= Date.today.year
+      %p= f.password_field :password, :placeholder =>"Password", :maxlenght => "50", :required => "true"
+      %p= f.password_field :password_confirmation, :placeholder =>"Confirm Password", :maxlenght => "50", :required => "true"
+      %p
+        = f.check_box :term_flag, :required => "true" 
+        I accept the terms
+      %section.content_buttons
+        %button.submit{type: "submit"} Submit
+        %button.reset{type: "reset"} Reset
+
+%nav.footer_navigation
+  Upgrade | Advertise | Merch | Press | Careers | Privacy | Copyrights | Terms | Help
