@@ -12,10 +12,9 @@
       Login
 
 %section.wrapper
-  %nav.content_nav
+  %nav.content
     %h1.logo_big.hide_text CoStorm
-    .flex-video
-      %iframe{allowfullscreen: "", frameborder: "0", height: "315", src: "http://www.youtube.com/embed/hXZjzrvuFXg", witdth: "560"}
+    %iframe{width: "640", height: "360", src: "//www.youtube.com/embed/j7_lSP8Vc3o", frameborder: "0", allowfullscreen: ""}
   %section.content
     = form_for @user, :url => { :action => 'signup' }, :html => { :id => "signup_form" } do |f|
       - if @user.errors.any? && @user.errors[:login].empty?
@@ -29,8 +28,7 @@
       %p= f.email_field :email_confirmation, :placeholder => "Confirm your email", :maxlenght => "100", :required => "true"
       %p
         %label
-          Birthday 
-          %br
+          %h2 Birthday 
           %select#user_birthday_2i{name: "user[birthday(2i)]"}
             %option{selected: "selected", value: "1"} January
             %option{value: "2"} February

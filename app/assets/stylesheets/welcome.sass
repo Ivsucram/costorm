@@ -28,7 +28,9 @@ $alertsColor: #c70b0b
 	bottom: $bottom
 	left: $left
 
-// Default Font
+// ********************************************************************
+// *                        Default Font                              *
+// ********************************************************************
 
 @mixin typography($weight, $transform, $size, $color)
 	font-family: 'Open Sans', sans-serif
@@ -36,22 +38,20 @@ $alertsColor: #c70b0b
 	text-transform: $transform
 	font-size: $size
 	color: $color
-
 body
 	background-color: $gray95
 	text-rendering: optimizeLegibility
 	-webkit-font-smoothing: antialiased
-
 .hide
 	display: none
-
 .hide_text 
 	text-indent: -999999px
-
 .lowercase
 	text-transform: lowercase
 
-// Fixed Top
+// ********************************************************************
+// *                           Fixed Top                              *
+// ********************************************************************
 
 .top_navigation
 	background-color: $gray15
@@ -69,121 +69,119 @@ body
 		font-size: 12px
 		-moz-border-radius: 4px
 		-webkit-border-radius: 4px
-.logo
-	float: left
-	display: block
-	+background(image-path("logo_costorm.png"), 102px, 27px)
-	margin: 13px 20px 0px 50px
-#signin_form
-	float: right
-	margin: 13px 20px 0px 50px
-button.login
-	width: 120px
-	height: 38px
-	+gradient(#f79a3a, #f16613)
-	+typography(700, uppercase, 10px, #ffffff)
-	letter-spacing: 1.5px
-	border: none
-	+border-radius(3px)
-	+box-shadow(#000000 0px 1px 0px)
-	+text-shadow(#c36217 0px 1px 0px)
-	&:hover
-		+gradient(#f16613, #f79a3a)
-		+box-shadow($rgba-shadow 0px 1px 0px inset)
-		cursor: pointer
+	.logo
+		float: left
+		display: block
+		+background(image-path("logo_costorm.png"), 102px, 27px)
+		margin: 13px 20px 0px 50px
+	#signin_form
+		float: right
+		margin: 13px 20px 0px 50px
+	button.login
+		width: 120px
+		height: 38px
+		+gradient(#f79a3a, #f16613)
+		+typography(700, uppercase, 10px, #ffffff)
+		letter-spacing: 1.5px
+		border: none
+		+border-radius(3px)
+		+box-shadow(#000000 0px 1px 0px)
+		+text-shadow(#c36217 0px 1px 0px)
+		&:hover
+			+gradient(#f16613, #f79a3a)
+			+box-shadow($rgba-shadow 0px 1px 0px inset)
+			cursor: pointer
 
-// Content
+// ********************************************************************
+// *                             Content                              *
+// ********************************************************************
 
 section.wrapper
 	width: 90%
 	max-width: 1100px
-	margin: 0 auto
+	margin: auto
 	margin-top: 65px
-	margin-bottom: 120px
 	display: block
-
-	nav.content_nav
-		padding: 30px 0px 0px 30px
-		width: 170px
-		height: 100%
+	nav.content
+		padding: 30px 20px 0px 30px
 		float: left
 		background-color: $gray95
-
+		.logo_big
+			display: block
+			+background(image-path("logo_welcome.png"), 477px, 158px)
+		iframe
+			margin: 10px auto
+			width: 640px
+			height: 360px
 	.content		
-		margin-left: 600px
-		padding: 50px 50px 0px 50px
-		+typography(400, capitalize, 16px, $gray60)
-		line-height: 2
+		padding: 190px 0px 0px 0px
+		+typography(400, null, 16px, $gray60)
 		h3
 			+typography(700, capitalize, 32px, $orange)
+		h2
+			+typography(700, capitalize, 24px, $orange)
+		#signup_form 
+			input
+				border: 1px solid #444444
+				background-color: #666666
+				padding: 4px
+				color: #DDDDDD
+				font-size: 18px
+				-moz-border-radius: 4px
+				-webkit-border-radius: 4px
+			input[type=text]
+				width: 240px
+			input[type=email]
+				width: 240px
+			input[type=password]
+				width: 240px
+			select
+				border: 1px solid #444444
+				background-color: #666666
+				padding: 5px
+				color: #DDDDDD
+				font-size: 12px
+				-moz-border-radius: 4px
+				-webkit-border-radius: 4px
+			#user_birthday_2i
+				width: 104px
+			#user_birthday_3i
+				width: 67px
+			#user_birthday_1i
+				width: 72px
+			button.submit
+				width: 120px
+				height: 38px
+				+gradient(#87A7F2, #BDC0DB)
+				+typography(700, uppercase, 10px, #ffffff)
+				letter-spacing: 1.5px
+				border: none
+				+border-radius(3px)
+				+box-shadow(#000000 0px 1px 0px)
+				+text-shadow(#c36217 0px 1px 0px)
+				&:hover
+					+gradient(#BDC0DB, #87A7F2)
+					+box-shadow($rgba-shadow 0px 1px 0px inset)
+					cursor: pointer
+			button.reset
+				width: 120px
+				height: 38px
+				+gradient(#D1000B, #F26977)
+				+typography(700, uppercase, 10px, #ffffff)
+				letter-spacing: 1.5px
+				border: none
+				+border-radius(3px)
+				+box-shadow(#000000 0px 1px 0px)
+				+text-shadow(#c36217 0px 1px 0px)
+				&:hover
+					+gradient(#F26977, #D1000B)
+					+box-shadow($rgba-shadow 0px 1px 0px inset)
+					cursor: pointer
 
-.logo_big
-	display: block
-	+background(image-path("logo_welcome.png"), 477px, 158px)
-
-#signup_form 
-	p
-		font-size: 11px
-	input
-		border: 1px solid #444444
-		background-color: #666666
-		padding: 5px
-		color: #DDDDDD
-		font-size: 12px
-		text-shadow: 1px 1px 1px #000000
-		-moz-border-radius: 4px
-		-webkit-border-radius: 4px
-	input[type=text]
-		width: 240px
-	input[type=email]
-		width: 240px
-	input[type=password]
-		width: 240px
-	select
-		border: 1px solid #444444
-		background-color: #666666
-		padding: 5px
-		color: #DDDDDD
-		font-size: 12px
-		text-shadow: 1px 1px 1px #000000
-		-moz-border-radius: 4px
-		-webkit-border-radius: 4px
-	#user_birthday_2i
-		width: 101px
-	#user_birthday_3i
-		width: 66px
-	#user_birthday_1i
-		width: 71px
-	button.submit
-		width: 120px
-		height: 38px
-		+gradient(#87A7F2, #BDC0DB)
-		+typography(700, uppercase, 10px, #ffffff)
-		letter-spacing: 1.5px
-		border: none
-		+border-radius(3px)
-		+box-shadow(#000000 0px 1px 0px)
-		+text-shadow(#c36217 0px 1px 0px)
-		&:hover
-			+gradient(#BDC0DB, #87A7F2)
-			+box-shadow($rgba-shadow 0px 1px 0px inset)
-			cursor: pointer
-	button.reset
-		width: 120px
-		height: 38px
-		+gradient(#D1000B, #F26977)
-		+typography(700, uppercase, 10px, #ffffff)
-		letter-spacing: 1.5px
-		border: none
-		+border-radius(3px)
-		+box-shadow(#000000 0px 1px 0px)
-		+text-shadow(#c36217 0px 1px 0px)
-		&:hover
-			+gradient(#F26977, #D1000B)
-			+box-shadow($rgba-shadow 0px 1px 0px inset)
-			cursor: pointer
-
-// Footer
+// ********************************************************************
+// *                              Footer                              *
+// ********************************************************************
 
 .footer_navigation
+	margin-top: 60px
 	background: #F18020
